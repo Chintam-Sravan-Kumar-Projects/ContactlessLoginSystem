@@ -23,7 +23,7 @@ def Main():
         if (username == "" and password == ""):
             messagebox.showinfo("", "Blank Not allowed")
 
-        elif (username == "0" and password == "0"):
+        elif (username == "00" and password == "00"):
             messagebox.showinfo("", "login success")
 
         else:
@@ -103,10 +103,15 @@ def Main():
                     else:
                         prev.pop()
                         prev.append(index)
+                    print(inputs)
+                    print(got)
+                    print("------------------")
+
 
                     cv2.rectangle(imgOutput, (x - 20, y - 70), (x + 120, y-20), (255, 0, 255), cv2.FILLED)
                     cv2.putText(imgOutput, labels[index], (x, y - 26), cv2.FONT_HERSHEY_COMPLEX, 1.2, (255, 255, 255),2)
                     cv2.rectangle(imgOutput, (x - 20, y - 20), (x + w + 20, y + h + 20), (255, 0, 255), 4)
+                    cv2.putText(imgOutput, inputstring, (10,460), cv2.FONT_HERSHEY_COMPLEX, 1.8, (255, 0, 255),4)
                 except:
                     print("Alert", "Show hand clearly")
 
@@ -130,6 +135,7 @@ def Main():
     entry2.place(x=140, y=370)
 
     Button(root, text="Login", command=login, height=3, width=13, bd=6).place(x=100, y=400)
+
 
     root.mainloop()
 
